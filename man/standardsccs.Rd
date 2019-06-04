@@ -174,15 +174,15 @@ Yonas Ghebremichael-Weldeselassie, Heather Whitaker, Paddy Farrington.
 #  Multiple doses of a vaccine each with different parameter estimates (sameexpopar=F)
   
    
-   ageg <- c(57,85,113,141,169,197,225,253,281,309,337) # age group cut points
+   \donttest{ageg <- c(57,85,113,141,169,197,225,253,281,309,337)} # age group cut points
    
-   dtp.mod2 <- standardsccs(event~dtp+age, indiv=case, astart=sta, aend=end,
+   \donttest{dtp.mod2 <- standardsccs(event~dtp+age, indiv=case, astart=sta, aend=end,
                            aevent=conv, adrug=cbind(dtp,dtpd2, dtpd3), 
                            aedrug=cbind(dtp+14,dtpd2+14,dtpd3+14), 
                            expogrp=c(0,4,8),agegrp=ageg, dataformat="multi", 
-                           sameexpopar=FALSE, data=dtpdat)
+                           sameexpopar=FALSE, data=dtpdat)}
 
-   dtp.mod2
+   \donttest{dtp.mod2}
    
 # Multiple exposure types 
 

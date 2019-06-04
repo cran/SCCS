@@ -1,5 +1,5 @@
 formatdata <- function(indiv, astart, aend, aevent, adrug, aedrug, expogrp = list(), washout = list(), 
-                            sameexpopar = list(), agegrp = NULL, seasongrp=NULL, dob=NULL, cov = cbind(), dataformat="stack", data) {
+                       sameexpopar = list(), agegrp = NULL, seasongrp=NULL, dob=NULL, cov = cbind(), dataformat="stack", data) {
   
   if (is.null(data)) {
     
@@ -253,7 +253,9 @@ formatdata <- function(indiv, astart, aend, aevent, adrug, aedrug, expogrp = lis
   
   
   #      data1 <- data.frame(unique(cbind(indiv, aevent, astart, aend)))
+  # Sorting the data by indiv, new after the glitch found in format data related to sorting the data 23-04-2019 
   
+  data1 <- data1[order(data1$indiv), ]
   # Changing NA's to aend 
   for (i in 1:length(expo)) {
     for (j in 1:ncol(expo[[i]])){
@@ -376,7 +378,7 @@ formatdata <- function(indiv, astart, aend, aevent, adrug, aedrug, expogrp = lis
   eventday <- rep(data1$aevent, times = ncuts)
   
   ## combine all matrices in expo
-  allexpo <- matrix(, nrow=nrow(data1), ncol=sum(ncolexpo ))
+  allexpo <- matrix(NA, nrow=nrow(data1), ncol=sum(ncolexpo ))
   # cumsum(ncolexpo)
   # (c(1, (cumsum(ncolexpo)[-length(ncolexpo)] + 1)))
   

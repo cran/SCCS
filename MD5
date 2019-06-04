@@ -1,11 +1,11 @@
-601c999e6e842eebe6e0fcfad5731f0e *DESCRIPTION
+71b152f3bc2a94d1ca8ade2cb8207c79 *DESCRIPTION
 84d8fa087e0883daa6319a3bebc4f933 *NAMESPACE
 b67d44ecd7b69101ff934d90941e54c7 *R/Yproduct.R
-934a00708d634f41347bf14b79d78b53 *R/adrug_matrix.R
+a4c4e7503cccd0817a5a74d95f16aee6 *R/adrug_matrix.R
 b04d6293884449cc50813bffbb0e8931 *R/dmsplinedesign.R
 70c707074f6f975bc2e4a9eb31d149c4 *R/eventdepenexp.R
 116665b35fbf9c740090ac4d2d89c301 *R/eventdepenobs.R
-478213c1db5d2045f26ba5612392a82c *R/formatdata.R
+3d1c40c27de0ef73f1d8c2f8842c7f11 *R/formatdata.R
 37ec939c904cd7bfe4cd02777374d59c *R/integrateIspline.R
 2991c3cdccf3b1708da869b50ee0b8fb *R/ispline.R
 85ab6b945d48d27ac0bafc8ec687cd9b *R/ispline1.R
@@ -59,7 +59,7 @@ a54b2fe83f5c159782117887bc9876f9 *data/midat.txt.gz
 6966e3753cc09bc8f07107285307ab7d *data/rotdat.txt.gz
 3eed34a2816cfe9346fdd2b2fd7c6352 *data/rsvdat.txt.gz
 9b078130d8a79633b82f53f0ec65a9bb *data/siddat.txt.gz
-88744aabb4cdbc7a790267c3ac636501 *man/SCCS-package.Rd
+012117c682e11c46ce2c540c09dced5c *man/SCCS-package.Rd
 adbfd2e1d550179049a02f5a6af810a3 *man/addat.Rd
 6c52e90a94bf91d0866a0b5686fab04d *man/adidat.Rd
 8abbb216559399fd8dfc2d3f2dadd273 *man/amdat.Rd
@@ -95,4 +95,4 @@ c391f60068502d2adedabc1483525d35 *man/siddat.Rd
 b19a59c9d14d442237de7da7ca7cd40c *man/simulatesccsdata.Rd
 f1f1af65bcc348e169cac9647a4d5037 *man/smoothagesccs.Rd
 6b04d24251673cbdb7603b9987c32aaf *man/smoothexposccs.Rd
-c2dd3e18cc5fdaa2ac4c28432d44cce0 *man/standardsccs.Rd
+67c143209a3a2094a1729be0ea362af4 *man/standardsccs.Rd
