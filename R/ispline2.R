@@ -115,6 +115,5 @@ ispline2 <- function(x, knots1, m) {    # ispline1 is a function that evaluates 
         + ((k[i+3+m+1+1]-k[i+3+1])/(m+1))*((((k6[i+3+m+2+1]-k6[i+3+1])/(m+2))*((((k7[i+3+m+3+1]-k7[i+3+1])/(m+3))*(msplinedesign7[j,i+3+1+2])) ) ))
         
       }
-  return
-  resu[,1:(d-1)]
+  return(resu[,1:(d-1)])
 }

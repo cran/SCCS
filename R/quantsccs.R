@@ -9,8 +9,7 @@ quantsccs <- function(formula, indiv, event, data) {
   fmla1 <- as.formula(paste("event~", fmla[3]))
   mod <- clogit(formula = fmla1, method = "breslow", data = fdata)
   summary <- summary(mod)
-  return
-  summary
+  return(summary)
   
   
 }

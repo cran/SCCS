@@ -139,12 +139,10 @@ simulatesccsdata <- function(nindivs, astart, aend, adrug, aedrug, expogrp=c(0),
   
   expolev <- if (sameexpopar==TRUE) {
     expolev <- expolevsame
-    return
-    expolev
+    return(expolev)
   } else {
     expolev <- expolevdiff
-    return
-    expolev
+    return(expolev)
   }
   
   # ------------------------------------New May 8 
@@ -273,8 +271,7 @@ simulatesccsdata <- function(nindivs, astart, aend, adrug, aedrug, expogrp=c(0),
         colnames(simdata)[i+2+ncol(adrug)] <- paste("aedrug",i, sep="")
       }
       
-      return 
-      simdata
+      return(simdata)
       
     } else {
       ageb <- agegrp
@@ -416,15 +413,13 @@ simulatesccsdata <- function(nindivs, astart, aend, adrug, aedrug, expogrp=c(0),
       # Put NA's for the adrug ==aedrug==aend    #
       #------------------------------------------#
       
-      return
-      simdata 
+      return(simdata)
       
     }
   }
   
   simdata <- ageeffect(agegrp, eage)
   
-  return
-  simdata
+  return(simdata)
   
 }

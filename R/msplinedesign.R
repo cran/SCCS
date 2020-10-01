@@ -11,7 +11,6 @@ msplinedesign <- function(x, k, m=4) { # x = event time k=knots, m=order
   for (i in 1:(length(k)-m)){
     bspline[,i] <- bspline[,i]*m/(k[i+m]-k[i])
   }
-  return
-  bspline
+  return(bspline)
   
 }

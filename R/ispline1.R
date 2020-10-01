@@ -45,6 +45,5 @@ ispline1 <- function(x, knots1, m) {    # ispline1 is a function that evaluates 
         resu[j,i] <- ((k[i+m+1+1]-k[i+1])/(m+1))*((((k6[i+m+2+1]-k6[i+1])/(m+2))*(msplinedesign6[j,i+1+1])) + (((k6[i+1+m+2+1]-k6[i+1+1])/(m+2))*(msplinedesign6[j,i+1+1+1])) + (((k6[i+2+m+2+1]-k6[i+2+1])/(m+2))*(msplinedesign6[j,i+2+1+1])) + (((k6[i+3+m+2+1]-k6[i+3+1])/(m+2))*(msplinedesign6[j,i+3+1+1]))) + ((k[i+1+m+1+1]-k[i+1+1])/(m+1))*((((k6[i+1+m+2+1]-k6[i+1+1])/(m+2))*(msplinedesign6[j,i+1+1+1])) + (((k6[i+2+m+2+1]-k6[i+2+1])/(m+2))*(msplinedesign6[j,i+2+1+1])) + (((k6[i+3+m+2+1]-k6[i+3+1])/(m+2))*(msplinedesign6[j,i+3+1+1]))) + ((k[i+2+m+1+1]-k[i+2+1])/(m+1))*((((k6[i+2+m+2+1]-k6[i+2+1])/(m+2))*(msplinedesign6[j,i+2+1+1])) + (((k6[i+3+m+2+1]-k6[i+3+1])/(m+2))*(msplinedesign6[j,i+3+1+1]))) + ((k[i+3+m+1+1]-k[i+3+1])/(m+1))*(((k6[i+3+m+2+1]-k6[i+3+1])/(m+2))*(msplinedesign6[j,i+3+1+1]))
         
       }
-  return
-  resu[,1:(d-1)]
+  return(resu[,1:(d-1)])
 }

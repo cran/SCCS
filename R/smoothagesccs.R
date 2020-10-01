@@ -392,7 +392,7 @@ smoothagesccs <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
     
     cvs <- llex(par) + sum(diag(pseudoinverse(hes[1:(kn+1), 1:(kn+1)])%*%(hes[1:(kn+1), 1:(kn+1)] - ((lambda*(8*penaltymatrix*((c(par[1:(ceiling((kn+2+1)/2))], 1, par[((ceiling((kn+2+1)/2))+1):(kn+1)]))%*%t(c(par[1:(ceiling((kn+2+1)/2))], 1, par[((ceiling((kn+2+1)/2))+1):(kn+1)]))) - 4*(diag(as.vector(penaltymatrix%*%(c(par[1:(ceiling((kn+2+1)/2))], 1, par[((ceiling((kn+2+1)/2))+1):(kn+1)]))^2)))))[-((ceiling((kn+2+1)/2))+1),-((ceiling((kn+2+1)/2))+1)]))))
     
-    return (cvs)
+    return(cvs)
     
   }
   
@@ -526,6 +526,5 @@ smoothagesccs <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
   results <- list("coef" = ris, "se"=se, "age" =ageriesti/ageriesti[1], "ageaxis"= ageaxis, "smoothingpara"=lambda1, "cv"=smparcv)
   
   class(results) <- "smoothagesccs"
-  return
-  results
+  return(results)
 }

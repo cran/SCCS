@@ -38,7 +38,6 @@ adrug_matrix <- function(indiv, aevent, adrug) {
   for (i in 1:(nrow(adrug_new))) {
     adrug_new[i,1:no_of_expo_events[i]] <-  events_expo_unique[cumsum_no_of_expo_events_1[i]:cumsum_no_of_expo_events[i] ,3]     
   }
-  return
-  adrug_new
+  return(adrug_new)
 }
 

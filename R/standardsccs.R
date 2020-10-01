@@ -113,6 +113,5 @@ standardsccs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, ex
   fmla1 <- as.formula(paste("event~", fmla[3]))
   mod <- clogit(formula = fmla1, data = chopdat)
   summary <- summary(mod)
-  return
-  summary
+  return(summary)
 }

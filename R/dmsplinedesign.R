@@ -13,7 +13,6 @@ dmsplinedesign <- function(x, knots1, m, deriv) { # x = event time knots=knots, 
   for (i in 1:(length(knots)-m)){
     dbspline[,i] <- dbspline[,i]*(m/(knots[i+m]-knots[i]))
   }
-  return
-  dbspline
+  return(dbspline)
   
 }

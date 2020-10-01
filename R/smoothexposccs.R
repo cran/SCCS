@@ -187,7 +187,7 @@ smoothexposccs <- function(indiv, astart, aend, aevent, adrug, aedrug, agegrp, k
     cvs <- ll(outopt$par) + sum(diag((pseudoinverse(-outopt$hessian))%*%(-outopt$hessian + lambda*((8*penaltymatrix*(outopt$par%*%t(outopt$par))  ) +  (4*(diag(as.vector(penaltymatrix%*%outopt$par^2))))) )))
     
     
-    return (cvs)
+    return(cvs)
     
   }
   
@@ -326,8 +326,7 @@ smoothexposccs <- function(indiv, astart, aend, aevent, adrug, aedrug, agegrp, k
   
   
   class(results) <- "smoothexposccs"
-  return
-  results
+  return(results)
   
   
 }

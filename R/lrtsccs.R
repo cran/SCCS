@@ -7,6 +7,5 @@ lrtsccs<-function(model1,model2){
  # print(data.frame(test, df, pvalue), row.names=F)
  yy <- data.frame(test, df, pvalue)
  row.names(yy) <- " "
- return 
- yy
+ return(yy)
 }

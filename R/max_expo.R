@@ -6,6 +6,5 @@
 
 	  no_of_expo <- table(expo_no_unique$indiv)
 	  max_no_of_expo <- max(no_of_expo)
-      return
-        max_no_of_expo
+      return(max_no_of_expo)
      }

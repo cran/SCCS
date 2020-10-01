@@ -476,6 +476,5 @@ formatdata <- function(indiv, astart, aend, aevent, adrug, aedrug, expogrp = lis
   }
   
   chopdat$astart <- chopdat$astart+1
-  return
-  chopdat
+  return(chopdat)
 }

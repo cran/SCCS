@@ -685,8 +685,7 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
         }
       }
       #      return list("wlarge"=wlarge, "error"=error)
-      return
-      wlarge_ewa
+      return(wlarge_ewa)
     } else if (min(AICs)==AIC_EWI) {
       wlarge_ewi = NULL
       error_ewi = NULL
@@ -704,8 +703,7 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
         }
       }
       #     return list("wlarge"=wlarge, "error"=error)
-      return
-      wlarge_ewi
+      return(wlarge_ewi)
     } else if (min(AICs)==AIC_EGA) {
       wlarge_ega = NULL
       error_ega = NULL
@@ -721,8 +719,7 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
         }
       }
       #      return list("wlarge"=wlarge, "error"=error)
-      return
-      wlarge_ega
+      return(wlarge_ega)
       
     } else {
       wlarge_egi = NULL
@@ -739,8 +736,7 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
         }
       }
       #      return list("wlarge"=wlarge, "error"=error)
-      return
-      wlarge_egi
+      return(wlarge_egi)
     }
   }
   
@@ -766,9 +762,7 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
   mod <- clogit(formula = fmla1, data = chopdat)
   summary <- summary(mod)
   options(warn=0)
-  return
-  
-  list("modelfit"=modelfit, "summary"=summary(mod))
+  return(list("modelfit"=modelfit, "summary"=summary(mod)))
   
 }
 

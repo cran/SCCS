@@ -139,7 +139,7 @@ nonparasccs <- function(indiv, astart, aend, aevent, adrug, aedrug, kn1=12, kn2=
     cvs <- llex(par) + sum(diag(pseudoinverse(-hes[1:(kn1+1), 1:(kn1+1)])%*%(-hes[1:(kn1+1), 1:(kn1+1)] + 
                       ((lambda1*(8*penaltymatrixage*((c(par[1:(ceiling((kn1+2+1)/2))], 1, par[((ceiling((kn1+2+1)/2))+1):(kn1+1)]))%*%t(c(par[1:(ceiling((kn1+2+1)/2))], 1, par[((ceiling((kn1+2+1)/2))+1):(kn1+1)]))) + 4*(diag(as.vector(penaltymatrixage%*%(c(par[1:(ceiling((kn1+2+1)/2))], 1, par[((ceiling((kn1+2+1)/2))+1):(kn1+1)]))^2)))))[-((ceiling((kn1+2+1)/2))+1),-((ceiling((kn1+2+1)/2))+1)]))))
     
-    return (cvs)
+    return(cvs)
     
   }
   
@@ -211,7 +211,7 @@ nonparasccs <- function(indiv, astart, aend, aevent, adrug, aedrug, kn1=12, kn2=
     cvs <- ll(outopt$par) + sum(diag((pseudoinverse(-outopt$hessian))%*%(-outopt$hessian + lambda*((8*penaltymatrix*(outopt$par%*%t(outopt$par))  ) +  (4*(diag(as.vector(penaltymatrix%*%outopt$par^2))))) )))
     
     
-    return (cvs)
+    return(cvs)
     
   }
   
@@ -318,7 +318,6 @@ nonparasccs <- function(indiv, astart, aend, aevent, adrug, aedrug, kn1=12, kn2=
   # nonparaSCCSoutput <- list("exposure" = estimates, "age"=ageriesti/max(cumsum(ageriesti)), "ageaxis"=agessss, "timesinceexpo"=timesinceex, "se"=sderror, "lambda1"=smpar1$par, "cv1"=smpar1$value, "lambda2"=smpar$par, "cv2"=smpar$value)
   nonparaSCCSoutput <- list("exposure" = estimates, "age"=ageriesti/ageriesti[1], "ageaxis"=agessss, "timesinceexpo"=timesinceex, "se"=sderror, "lambda1"=smpar1$par, "cv1"=smpar1$value, "lambda2"=smpar$par, "cv2"=smpar$value)
   class(nonparaSCCSoutput) <- "nonparasccs"
-  return
-  nonparaSCCSoutput
+  return(nonparaSCCSoutput)
 }
 

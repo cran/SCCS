@@ -37,6 +37,5 @@ ispline <- function(x, knots1, m) {
         #} else {
         #resu <- (k[i+m+1]-k[i])*(mspline(x, knots, i, m+1))/(m+1) + (k[i+1+m+1]-k[i+1])*(mspline(x, knots, i+1, m+1))/(m+1) + (k[i+2+m+1]-k[i+2])*(mspline(x, knots, i+2, m+1))/(m+1) + (k[i+3+m+1]-k[i+3])*(mspline(x, knots, i+3, m+1))/(m+1) + (k[i+4+m+1]-k[i+4])*(mspline(x, knots, i+4, m+1))/(m+1) + (k[i+5+m+1]-k[i+4])*(mspline(x, knots, i+5, m+1))/(m+1)
       }
-  return
-  resu[,1:(d-1)]
+  return(resu[,1:(d-1)])
 }

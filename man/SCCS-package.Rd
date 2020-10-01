@@ -31,7 +31,7 @@ Maintainer: Yonas Ghebremichael-Weldeselassie <y.weldeselassie@warwick.ac.uk>
 %% ~~ The author and/or maintainer of the package ~~
 }
 \references{
-\url{https://sccs-studies.info}%%~~ Literature or other references for background information ~~
+\url{https://sccs-studies.info/index.html}
 
 Farrington, P., Whitaker, H., and Ghebremichael-Weldeselassie, Y. (2018). Self-controlled Case Series Studies: A modelling Guide with R. Boca Raton: Chapman & Hall/CRC Press. 
 }

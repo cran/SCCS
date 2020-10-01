@@ -410,8 +410,7 @@ semisccs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, expogr
   fmla1 <- as.formula(paste("event~", fmla[3]))
   mod <- clogit(formula = fmla1, data = finaldata)
   summary <- summary(mod)
-  return
-  summary
+  return(summary)
   
   # model <- clogit(event ~ exposure + strata(indiv) + factor(day) , data = finaldata)
   # result <- summary(model)
