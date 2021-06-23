@@ -10,6 +10,8 @@
 %%~~ package title ~~
 }
 \description{Fits the self-controlled case series model used to investigate the association between a time-varying exposures such as vaccines or other drugs and an adverse event. Some extensions of the SCCS method can be fitted with this package.
+
+Note: Ages and times describing the start and end of observation, exposure times, and event times, should be expressed as integers. In most of the datasets, units of time are days; other choices may be appropriate according to context, but must be given as integers. Ages appearing as covariates need not be integers.
 %% More about what it does (maybe more than one line)
 %% ~~ A concise (1-5 lines) description of the package ~~
 }

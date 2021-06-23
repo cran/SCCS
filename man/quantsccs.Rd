@@ -27,7 +27,6 @@ number of events occuring at each time unit.
 
 \item{data}{
 a data frame containing the input data. Data are assembled one line per time unit of observation.
-
 }
 }
 \details{

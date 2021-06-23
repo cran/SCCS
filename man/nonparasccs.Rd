@@ -56,7 +56,7 @@ smoothing parameter value for exposure related relative incidence function. It d
 }
 
   \item{data}{
-a data frame containing the input data. %%     ~~Describe \code{data} here~~
+A data frame containing the input data. %%     ~~Describe \code{data} here~~
 }
 }
 \details{

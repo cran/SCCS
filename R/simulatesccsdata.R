@@ -139,10 +139,12 @@ simulatesccsdata <- function(nindivs, astart, aend, adrug, aedrug, expogrp=c(0),
   
   expolev <- if (sameexpopar==TRUE) {
     expolev <- expolevsame
-    return(expolev)
+    
+    expolev
   } else {
     expolev <- expolevdiff
-    return(expolev)
+    
+    expolev
   }
   
   # ------------------------------------New May 8 

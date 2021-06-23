@@ -87,7 +87,7 @@ maximum number of iterations. 100 is the default.
 
 
 \item{data}{
-a data frame containing the input data. The data should be in 'stack' or 'multi' (see \code{dataformat})
+a data frame containing the input data. The data should be in 'stack' or 'multi' (see \code{dataformat}).
 }
 }
 \details{

@@ -1,4 +1,4 @@
-f7fb693c5d73369f7fc7bf84cd0f5828 *DESCRIPTION
+ad4f3741d42ffea130e4fd0b10d87701 *DESCRIPTION
 84d8fa087e0883daa6319a3bebc4f933 *NAMESPACE
 27a11e1bddd90760b186d7fff5f77cb4 *R/Yproduct.R
 b21a00c73a16257d4310f0cef79837f3 *R/adrug_matrix.R
@@ -27,7 +27,7 @@ e4ec4d6f0b7bcf38aee59f1ecf96ec74 *R/print.smoothexposccs.R
 02c38e19732515c493a7f692d3039669 *R/quantsccs.R
 c36d3dff7335a13bed879d28771e1d0d *R/samplesize.R
 08347e1064805211c9eed409451dbe1c *R/semisccs.R
-d346ccd3a93aa0c2ea4d14741b7545ab *R/simulatesccsdata.R
+4d332a2ebda3679757b38a9ed7859d44 *R/simulatesccsdata.R
 b1d56425f9272f044668a5832270850a *R/smoothagesccs.R
 1e8679cd155077e1b6fde9d944696c57 *R/smoothexposccs.R
 736a0951cb3efb0972f81cb1bc60f542 *R/standardsccs.R
@@ -58,7 +58,7 @@ d97223e8f8f116eab0e93733de190c67 *data/nrtdat.txt
 04dc5912053509994039ef5ebf5a4229 *data/rotdat.txt
 b4df31b9f8f600eb5517664ae2e9ab83 *data/rsvdat.txt
 d4c0a0c13243c24aa96bb17b94435fdf *data/siddat.txt
-b6b5885b97dc2d953cab356ff5583a60 *man/SCCS-package.Rd
+1572fdbca74d1e9658098bc7aadda907 *man/SCCS-package.Rd
 adbfd2e1d550179049a02f5a6af810a3 *man/addat.Rd
 6c52e90a94bf91d0866a0b5686fab04d *man/adidat.Rd
 8abbb216559399fd8dfc2d3f2dadd273 *man/amdat.Rd
@@ -68,10 +68,10 @@ a80d2c58d489171c2a6730308f090671 *man/autdat.Rd
 157f16fffd69c946dfafc5c1fb890526 *man/bupdat.Rd
 cf5722ebde90e7df04012b8441e2117e *man/condat.Rd
 92ceefdd689670bf9e58550c9056678d *man/dtpdat.Rd
-718ad1f3ff8610736960e814fec252d8 *man/eventdepenexp.Rd
-bc2c8e3c8cdf45f12195c440dbed2897 *man/eventdepenobs.Rd
+259b404c7a8fc28595f6f225c3b913da *man/eventdepenexp.Rd
+d4d9266c215abeb57eded82da707d968 *man/eventdepenobs.Rd
 a1ac0e0dcde504a74418830a06785ae4 *man/febdat.Rd
-517b16ca22d4858b37b99234f1e93173 *man/formatdata.Rd
+1cf5f78995c7b74063f4f2a22efed518 *man/formatdata.Rd
 525b9011465d1c4a03ed22b8ed15ffcb *man/gbsdat.Rd
 94f28647f4c4e3bd27524ab4b9fd626f *man/gidat.Rd
 4afa198a2e1f7da16ad9c2ff1ebdc0b4 *man/hibdat.Rd
@@ -81,11 +81,11 @@ c1a4a08fcb4232ac6dfce3cfb8ec3e10 *man/hipdat.Rd
 9f7ad553163b0be5aa8b5cd244a14cb2 *man/itpdat.Rd
 3897222cc2536655e7f19e6be16ae6ed *man/lrtsccs.Rd
 f860b46e3341df4fc163c6403c29f0a1 *man/midat.Rd
-74b39892a331086b3b9066073a690e14 *man/nonparasccs.Rd
+9818c0e52d1e220a90aa94f87669b548 *man/nonparasccs.Rd
 8970f72a1f35ac3fd077a824b89709e3 *man/nrtdat.Rd
 1032e1dc6ff492f47e61ab97a5751c5d *man/opvdat.Rd
 9b8a11dbf8c8f73cda4d7c7dc68b0738 *man/pmdat.Rd
-381bd7bc4d2b5bb9110392f8e868fa4f *man/quantsccs.Rd
+2a282b7de87ef1246780bf9c9ef877cf *man/quantsccs.Rd
 95ad15185e323288b131a06c6ec9b117 *man/rotdat.Rd
 d3da5046d0944c83d63ce1958224e256 *man/rsvdat.Rd
 ded2ab6d33efe0a6fed8466cdd82744a *man/samplesize.Rd
