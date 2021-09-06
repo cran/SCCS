@@ -59,7 +59,7 @@ a data frame containing the input data.
 The \code{\link{standardsccs}}, \code{\link{semisccs}} and \code{\link{smoothagesccs}} use piecewise constant step functions to model the exposure effect. However mis-specification of exposure group cut points might result in biased estimates. This method represents exposure related relative incidence function by a spline function.
 }
 \value{
-Relative incidence estimates along with their 95\% confidence limits.
+Relative incidence estimates along with their 95\% confidence limits. Varaince-covariance matrix can also be obtained. 
 %%  ~Describe the value returned
 %%  If it is a LIST, use
   \item{estimates}{exposure related relative incidence estimates at each point of time since start of exposure until the maximum duration of exposure.}

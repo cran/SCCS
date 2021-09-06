@@ -58,7 +58,7 @@ a vector of cut points of the age groups where each value represents the start o
 }
 
 \item{seasongrp}{
-a vector of cut points for seasonal effects. The values should be given in ddmm format, representing the first days of each season group. The seasonal effect is a factor, the reference level being the time interval starting at the earliest date in \code{seasongrp}. The default is NULL where no seasonal effects areincluded.
+a vector of cut points for seasonal effects. The values should be given in ddmm format, representing the first days of each season group. The seasonal effect is a factor, the reference level being the time interval starting at the earliest date in \code{seasongrp}. The default is NULL where no seasonal effects are included.
 }
 
 \item{dob}{

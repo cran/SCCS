@@ -1,7 +1,7 @@
 
 eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, censor, expogrp = list(), 
-                           washout = list(), sameexpopar = list(), agegrp = NULL, dataformat="stack", 
-                           covariates=NULL, regress=F, initval=rep(0.1,7), data){
+                          washout = list(), sameexpopar = list(), agegrp = NULL, dataformat="stack", 
+                          covariates=NULL, regress=F, initval=rep(0.1,7), data){
   
   if (isTRUE(regress) & length(initval)<7){
     
@@ -368,11 +368,11 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
   #-----------------------------------#
   #    Fit the four mixture models    #
   #-----------------------------------#
- 
+  
   # data driven intial values
   
   ##if (is.null(initval)) {
-    
+  
   #  if (isTRUE(regress)) { 
   #    p01 <- c(log(mean(data1$aend[data1$present==0]-data1$aevent[data1$present==0])), 
   #             log(mean(data1$aend[data1$present==1]-data1$aevent[data1$present==1])),
@@ -382,7 +382,7 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
   #             log((sum(1-data1$present))/sum(data1$present)),
   #             0)
   #  } else {
-      
+  
   #    p01 <- c(log(mean(data1$aend[data1$present==0]-data1$aevent[data1$present==0])), 
   #             log(mean(data1$aend[data1$present==1]-data1$aevent[data1$present==1])),
   #             
@@ -392,24 +392,24 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
   #  }
   #  
   #} else {
-    
+  
   #  if (isTRUE(regress)) {
   #    p01 <- c(initval[1], initval[2], initval[5], initval[3], initval[6], initval[4], initval[7])
-      
+  
   #  } else {
-      
-   #   p01 <- initval[1:4]
+  
+  #   p01 <- initval[1:4]
   #  }
   #}
   # Defaults is rep(0.1, 7)
-    
+  
   if (isTRUE(regress)) {
-      p01 <- c(initval[1], initval[2], initval[5], initval[3], initval[6], initval[4], initval[7])
-  
-    } else {
-  
-     p01 <- initval[1:4]
-    }
+    p01 <- c(initval[1], initval[2], initval[5], initval[3], initval[6], initval[4], initval[7])
+    
+  } else {
+    
+    p01 <- initval[1:4]
+  }
   
   p0 <- rep(p01, each=ncol(Dmatrix))
   npar <- length(p0)

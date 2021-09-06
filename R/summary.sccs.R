@@ -1,4 +1,4 @@
-summary.sccs <- function(mod, ses, ncases, nevents) {
+summary.sccs <- function(mod, sandwich, ses, ncases, nevents) {
   
   rval <- list()
   tmp <- cbind(coef(mod), exp(coef(mod)), ses, coef(mod)/ses, 1 - pchisq((coef(mod)/ ses)^2, 1))
@@ -17,11 +17,12 @@ summary.sccs <- function(mod, ses, ncases, nevents) {
                                              paste("upper .", 95, sep = "")))
   rval$coefficients <- tmp
   rval$conf.int <- tmp1
+  rval$VarCov <- sandwich
   #rval$rsq <- 1
   #rval$logtest <- 0
   #rval$waldtest <- 0
- # rval$sctest <- 0
- # rval$used.robust <- 0
+  # rval$sctest <- 0
+  # rval$used.robust <- 0
   rval$n <- paste0(ncases, " cases")
   rval$nevent <- nevents 
   #if (is.R()) class(rval) <- "summary.coxph"
