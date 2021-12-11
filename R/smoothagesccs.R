@@ -16,7 +16,15 @@ smoothagesccs <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
   yon1 <- as.formula(paste("z", "~", yon)) 
   adrugcolnames <- all.vars(yon1, functions = FALSE, unique = TRUE)[-1] 
   # colname  <- deparse(substitute(adrug))
+  
+  indiv  <- eval(substitute(indiv), data, parent.frame())
+  astart <- eval(substitute(astart), data, parent.frame())
+  aend   <- eval(substitute(aend), data, parent.frame())
+  aevent <- eval(substitute(aevent), data, parent.frame())
+  # adrug  <- eval(substitute(adrug), data, parent.frame())
+  aedrug <- eval(substitute(aedrug), data, parent.frame())
   adrug  <- eval(substitute(adrug), data, parent.frame())
+  
   
   # Changing adrug to a list if given as cbind(adrug1, adrug2,...) or adrug not as a list
   
@@ -36,34 +44,7 @@ smoothagesccs <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
   } else {
     adrug <- adrug
   }
-  
-  
-  for (i in 1:length(adrug)){
-    adrug[[i]] <- data.frame(adrug[[i]])
-  }
-  
-  ncoladrug <- NULL
-  for (i in 1:length(adrug)){
-    ncoladrug[i] <- ncol(adrug[[i]]) 
-  }
-  
-  
-  for (i in 1:length(adrug)) {
-    colnames(adrug[[i]]) <- adrugcolnames[c(1, cumsum(ncoladrug)+1)[-(length(ncoladrug)+1)][i]:cumsum(ncoladrug)[i]]
-  }
-  
-  # if (ncol(adrug)==1) {
-  #  colnames(adrug) <- colname
-  #} else { 
-  #  colnames(adrug) <- colnames(adrug)
-  #}
-  
-  indiv  <- eval(substitute(indiv), data, parent.frame())
-  astart <- eval(substitute(astart), data, parent.frame())
-  aend   <- eval(substitute(aend), data, parent.frame())
-  aevent <- eval(substitute(aevent), data, parent.frame())
-  # adrug  <- eval(substitute(adrug), data, parent.frame())
-  aedrug <- eval(substitute(aedrug), data, parent.frame())
+  #---------------------------------------------------------------------#  
   
   
   # Changing aedrug to a list if given as cbind(aedrug1, aedrug2,...) or aedrug not as a list
@@ -85,6 +66,35 @@ smoothagesccs <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
     aedrug <- aedrug
   }
   
+  #-----------------------------------------------# 
+  
+  # 08-12-21#
+  # Change the lists adrug and aedrug to a dataframes to help sorting the data set by indiv and adrug #
+  
+  adrugsort <- matrix(NA, nrow = length(indiv), ncol = length(adrug))
+  for (i in 1:length(adrug)){
+    adrugsort[,i] <- adrug[[i]]
+  }
+  
+  aedrugsort <- matrix(NA, nrow = length(indiv), ncol = length(aedrug))
+  for (i in 1:length(aedrug)){
+    aedrugsort[,i] <- aedrug[[i]]
+  }
+  #-------------------------------------------------------------#
+  # Combine all the variable 
+  data_sort <- data.frame(cbind(indiv, astart, aend, aevent, adrugsort, aedrugsort))
+  data_sort <- data_sort[order(data_sort$indiv, data_sort[,5]), ]
+  
+  indiv <- data_sort$indiv; astart <- data_sort$astart; aend <- data_sort$aend; aevent <- data_sort$aevent
+  #--------------------------------------------------------------# 
+  
+  adrug_sort <- list(data_sort[,5:(4+length(adrug))]) 
+  aedrug_sort <- list(data_sort[,(5+length(adrug)):ncol(data_sort)]) 
+  
+  
+  for (i in 1:length(adrug)){
+    adrug[[i]] <- data.frame(adrug_sort[[i]])
+  }
   
   # adrug <- (adrug)-1
   for (i in 1:length(adrug)) {
@@ -93,9 +103,31 @@ smoothagesccs <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
   }
   
   
+  # aedrug 
+  
   for (i in 1:length(aedrug)) {
-    aedrug[[i]] <- data.frame(aedrug[[i]])
+    aedrug[[i]] <- data.frame(aedrug_sort[[i]])
   }
+  
+  
+  # column names of the adrugs #
+  ncoladrug <- NULL
+  for (i in 1:length(adrug)){
+    ncoladrug[i] <- ncol(adrug[[i]]) 
+  }
+  
+  
+  for (i in 1:length(adrug)) {
+    colnames(adrug[[i]]) <- adrugcolnames[c(1, cumsum(ncoladrug)+1)[-(length(ncoladrug)+1)][i]:cumsum(ncoladrug)[i]]
+  }
+  
+  # if (ncol(adrug)==1) {
+  #  colnames(adrug) <- colname
+  #} else { 
+  #  colnames(adrug) <- colnames(adrug)
+  #}
+  
+  
   
   # Exposure periods cut points ###
   if (length(expogrp)==0) {
@@ -141,6 +173,10 @@ smoothagesccs <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
   # combine all the variables but exposures
   
   data1 <- data.frame(unique(cbind(indiv, aevent, astart, aend)))
+  # data1 <- data1[order(data1$indiv), ]
+  
+  #---------------------------------------# 
+  
   
   if (dataformat=="stack") {
     # List of all adrug matrices
@@ -159,8 +195,19 @@ smoothagesccs <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
     }
     
   } else if (dataformat=="multi") {
-    adrug_all <- adrug
-    aedrug_all <- aedrug
+    # adrug_all <- adrug
+    # aedrug_all <- aedrug
+    # 06-11-2021 changed the above two lines (184 and 185) as below
+    adrug_all <- list()
+    for (i in 1:length(adrug)) {
+      adrug_all[[i]] <- cbind(indiv, aevent, adrug[[i]])
+      adrug_all[[i]] <- data.frame(adrug_all[[i]][order(adrug_all[[i]][,1],adrug_all[[i]][,3]), -c(1,2)])
+    }
+    aedrug_all <- list()
+    for (i in 1:length(aedrug)) {
+      aedrug_all[[i]] <- cbind(indiv, aevent, aedrug[[i]])
+      aedrug_all[[i]] <- data.frame(aedrug_all[[i]][order(aedrug_all[[i]][,1],aedrug_all[[i]][,3]), -c(1,2)])
+    }    
     
   } else {
     stop("dataformat should be multi or stack")
@@ -234,8 +281,6 @@ smoothagesccs <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
                                                                                                                                                                                                                                                              k)])
     }
   }
-  
-  
   
   
   # Changing NA's to aend 
@@ -357,11 +402,11 @@ smoothagesccs <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
   
   neg.LLnex <- function(p, lambda) {
     
-    -(sum(rowsum(log(msplinedesign4[, 1:(kn+2)]%*%c(p[1:(ceiling((kn+2+1)/2))], 1, p[((ceiling((kn+2+1)/2))+1):(kn+1)])^2), indiv))
+    -(sum(rowsum(log(msplinedesign4[, 1:(kn+2)]%*%c(p[1:(ceiling((kn+2+1)/2))], 1, p[((ceiling((kn+2+1)/2))+1):(kn+1)])^2), data1$indiv))
       
       -(sum(rowsum(log((endobs%*%c(p[1:(ceiling((kn+2+1)/2))], 1, p[((ceiling((kn+2+1)/2))+1):(kn+1)])^2) - (startobs%*%c(p[1:(ceiling((kn+2+1)/2))], 1, p[((ceiling((kn+2+1)/2))+1):(kn+1)])^2)
                        
-      ), indiv)))
+      ), data1$indiv)))
       
       -(lambda)*(t(c(p[1:(ceiling((kn+2+1)/2))], 1, p[((ceiling((kn+2+1)/2))+1):(kn+1)])^2)%*%penaltymatrix%*%c(p[1:(ceiling((kn+2+1)/2))], 1, p[((ceiling((kn+2+1)/2))+1):(kn+1)])^2)
     )
@@ -397,7 +442,7 @@ smoothagesccs <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
   }
   
   if (is.null(sp)) {
-  smpar <- optim(0.00001, cv, method=c("Brent"), lower = 0.00001, upper = 150000000, control = list(reltol=1e-2))
+    smpar <- optim(0.00001, cv, method=c("Brent"), lower = 0.00001, upper = 150000000, control = list(reltol=1e-2))
     
   } else {
     

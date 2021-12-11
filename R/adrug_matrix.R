@@ -9,8 +9,10 @@ adrug_matrix <- function(indiv, aevent, adrug) {
   
   events_expo <- data.frame(cbind("indiv"=indiv, "aevent"=aevent, "adrug"=adrug))
   
-  # new 23-04-2019 After fidnig the glitch in the formatdata funtion was found (sorting data by indive)
-  events_expo <- events_expo[order(events_expo$indiv), ] 
+  # new 23-04-2019 After a glitch in the formatdata function was found (sorting data by indiv)
+  # events_expo <- events_expo[order(events_expo$indiv), ] 
+  events_expo <- events_expo[order(events_expo$indiv,events_expo[,3]), ]  # 29_11_21 - Replaced the above line by this
+  
   
   events_expo_unique <- data.frame(unique(events_expo))
   

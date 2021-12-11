@@ -31,6 +31,8 @@ formatdata <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp = li
     yon1 <- as.formula(paste("z", "~", yon))
     adrugcolnames <- all.vars(yon1, functions = FALSE, unique = TRUE)[-1]
     adrug <- eval(substitute(adrug), data, parent.frame())
+    
+    
     if ((dataformat == "multi" & !is.null(ncol(adrug)))) {
       adrug <- data.frame(adrug)
       adrug <- list(adrug)
@@ -61,6 +63,8 @@ formatdata <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp = li
       colnames(adrug[[i]]) <- adrugcolnames[c(1, cumsum(ncoladrug) + 
                                                 1)[-(length(ncoladrug) + 1)][i]:cumsum(ncoladrug)[i]]
     }
+    
+    
     indiv <- eval(substitute(indiv), data, parent.frame())
     astart <- eval(substitute(astart), data, parent.frame())
     aend <- eval(substitute(aend), data, parent.frame())
@@ -88,6 +92,9 @@ formatdata <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp = li
       aedrug <- aedrug
     }
   }
+  
+  
+  
   for (i in 1:length(adrug)) {
     adrug[[i]] <- adrug[[i]] - 1
   }
@@ -134,21 +141,35 @@ formatdata <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp = li
   else {
     agegrp <- agegrp - 1
   }
-  data1 <- data.frame(unique(cbind(indiv, aevent, astart, aend, 
-                                   cov)))
-  data1$astart <- data1$astart - 1
+  
+  
+  
+  # data1 <- data.frame(unique(cbind(indiv, aevent, astart, aend, 
+  #                                 cov)))
+  
+  
+  # data1$astart <- data1$astart - 1
+  
   if (is.null(dob)) {
-    data1 <- data1
+    # data1 <- data1
+    data1 <- data.frame(unique(cbind(indiv, aevent, astart, aend, 
+                                     cov)))
   }
   else {
     #data1$dob <- data.frame(unique(cbind(indiv, as.Date(formatC(dob, width = 8, format = "d", 
     #                             flag = "0"), "%d%m%Y"))))[,2]
-    data1$dob <- data.frame(unique(cbind(indiv, dob)))[,2]
+    #data1$dob <- data.frame(unique(cbind(indiv, dob)))[,2]
+    data1 <- data.frame(unique(cbind(indiv, aevent, astart, aend, 
+                                     cov, dob)))
     
     data1$dob <- as.Date(formatC(data1$dob, width = 8, format = "d", 
                                  flag = "0"), "%d%m%Y")
     
   }
+  
+  data1$astart <- data1$astart - 1
+  
+  
   if (dataformat == "stack") {
     adrug_all <- list()
     for (i in 1:length(adrug)) {
@@ -160,8 +181,20 @@ formatdata <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp = li
     }
   }
   else if (dataformat == "multi") {
-    adrug_all <- adrug
-    aedrug_all <- aedrug
+    # adrug_all <- adrug
+    # aedrug_all <- aedrug
+    
+    # 06-11-2021 changed the above two lines (184 and 185) as below
+    adrug_all <- list()
+    for (i in 1:length(adrug)) {
+      adrug_all[[i]] <- cbind(indiv, aevent, adrug[[i]])
+      adrug_all[[i]] <- data.frame(adrug_all[[i]][order(adrug_all[[i]][,1],adrug_all[[i]][,3]), -c(1,2)])
+    }
+    aedrug_all <- list()
+    for (i in 1:length(aedrug)) {
+      aedrug_all[[i]] <- cbind(indiv, aevent, aedrug[[i]])
+      aedrug_all[[i]] <- data.frame(aedrug_all[[i]][order(aedrug_all[[i]][,1],aedrug_all[[i]][,3]), -c(1,2)])
+      }
   }
   else {
     stop("dataformat should be multi or stack")
@@ -207,6 +240,7 @@ formatdata <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp = li
                                                                                                                                                        k)])
     }
   }
+  data1 <- data1[order(data1$indiv), ] # New 18-10-2021
   # data1 <- data1[order(data1$indiv), ]
   for (i in 1:length(expo)) {
     for (j in 1:ncol(expo[[i]])) {

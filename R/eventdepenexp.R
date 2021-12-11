@@ -76,13 +76,32 @@ eventdepenexp <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
   else if (dataformat == "multi") {
     adrug_all <- adrug
     aedrug_all <- aedrug
+  # The above two lines 77 and 78 changed as below to sort the data by indiv and adrug
+    
+    adrug_all <- list()
+    for (i in 1:length(adrug)) {
+      adrug_all[[i]] <- cbind(indiv, aevent, adrug[[i]])
+      adrug_all[[i]] <- data.frame(adrug_all[[i]][order(adrug_all[[i]][,1],adrug_all[[i]][,3]), -c(1,2)])
+    }
+    
+    aedrug_all <- list()
+    for (i in 1:length(aedrug)) {
+      aedrug_all[[i]] <- cbind(indiv, aevent, aedrug[[i]])
+      aedrug_all[[i]] <- data.frame(aedrug_all[[i]][order(aedrug_all[[i]][,1],aedrug_all[[i]][,3]), -c(1,2)])
+      
+    }
+    
+    
   }
   else {
     stop("dataformat should be multi or stack")
   }
   adrug <- as.matrix(adrug_all[[1]])
   aedrug <- as.matrix(aedrug_all[[1]])
+  
   data1 <- data.frame(unique(cbind(indiv, aevent, astart, aend)))
+  data1 <- data1[order(data1$indiv), ]
+  
   if (length(data1$indiv) != length(unique(data1$indiv))) {
     warning("Multiple events per case detected: analysis restricted to first events")
     ord <- order(data1$indiv)

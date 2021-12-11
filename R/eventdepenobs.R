@@ -105,6 +105,8 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
   # Extruct a data frame of unique indiv, astart, aend, aevent and cen 
   
   data1 <- data.frame(unique(cbind(indiv, aevent, astart, aend, present, covariates)))
+   # data1 sorted by indiv - 09-12-21
+  data1 <- data1[order(data1$indiv), ]
   
   # COvariates from data1
   
