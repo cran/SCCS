@@ -1,10 +1,11 @@
-a57bc5c15139d5a1c00fc8695d6e79d0 *DESCRIPTION
-c97beb0c43a19a114879f12052598374 *NAMESPACE
+b8692732a8ea174f089459f6bfe02bb2 *DESCRIPTION
+e906900d3da7000a4d1f90168a23e578 *NAMESPACE
 27a11e1bddd90760b186d7fff5f77cb4 *R/Yproduct.R
 daa321ada5517e05cd0b24d03910b01e *R/adrug_matrix.R
 ee1a8dd52b4170d42128caa44afe5982 *R/dmsplinedesign.R
+3bc20d601bc1cc083b86c860a4fa7910 *R/dummyvar.R
 4b7f9255727399593e9b443822f33177 *R/eventdepenexp.R
-2b2d66f24a4c4e14c6ee9040effdc60a *R/eventdepenobs.R
+a3c894c3be2942b220962e2e1a48ea1b *R/eventdepenobs.R
 9bfc8fd43125a46cfcafdbe013081be1 *R/formatdata.R
 37ec939c904cd7bfe4cd02777374d59c *R/integrateIspline.R
 a1f4723a56322f9e6e2a8982d6a7e086 *R/ispline.R

@@ -124,7 +124,7 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
   
   # A function used to create a design matirix when there are no covariates
   # If there are no covariates the design matrix will have one column of 1's
-  # if not the covariates matrix will be processed to create dummy variables.
+  # if not the covariates matrix will be processed to create dummyvar variables.
   # If there are no covariates the covariates=NULL is given
   
   covariates1 <- cbind(covariatesp, rep(1, nrow(data1)))
@@ -150,7 +150,7 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
   Dmatrix2 <- list()
   
   for (j in 1:ncol(covariates2)) {
-    Dmatrix2[[j]] <- Yproduct(Dmatrix1, dummy(covariates2[,j], data = NULL, sep = "", drop = TRUE, fun = as.integer, verbose = FALSE))
+    Dmatrix2[[j]] <- Yproduct(Dmatrix1, dummyvar(covariates2[,j], data = NULL, sep = "", drop = TRUE, fun = as.integer, verbose = FALSE))
   }
   
   Dmatrix <-NULL
@@ -476,7 +476,7 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
   Dmatrix_weights2 <- list()
   
   for (j in 1:ncol(covariates2)) {
-    Dmatrix_weights2[[j]] <- Yproduct(Dmatrix_weights1, dummy(covariates_weight[,j], data = NULL, sep = "", drop = TRUE, fun = as.integer, verbose = FALSE))
+    Dmatrix_weights2[[j]] <- Yproduct(Dmatrix_weights1, dummyvar(covariates_weight[,j], data = NULL, sep = "", drop = TRUE, fun = as.integer, verbose = FALSE))
   }
   
   Dmatrix_weights <- NULL
@@ -492,7 +492,7 @@ eventdepenobs <- function(formula, indiv, astart, aend, aevent, adrug, aedrug, c
   #  covariates_weight <-  data.frame(apply(covariates2, 2, function(x) rep(x, times = data.frame((table(chopdat$indivL)))$Freq)))
   
   #  for (j in 1:ncol(covariates2)) {
-  #    Dmatrix_weights <- Yproduct(Dmatrix_weights, dummy(covariates_weight[,j], data = NULL, sep = "", drop = TRUE, fun = as.integer, verbose = FALSE))
+  #    Dmatrix_weights <- Yproduct(Dmatrix_weights, dummyvar(covariates_weight[,j], data = NULL, sep = "", drop = TRUE, fun = as.integer, verbose = FALSE))
   #  }
   
   

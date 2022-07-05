@@ -1,11 +1,12 @@
 # exportPattern("^[[:alpha:]]+")
 export(standardsccs, eventdepenobs, formatdata, integrateIspline, nonparasccs, semisccs, simulatesccsdata, smoothagesccs, smoothexposccs, lrtsccs, eventdepenexp, quantsccs, samplesize)
-import("survival", "splines", "dummies", "corpcor", "fda","R.methodsS3", "gnm")
+import("survival", "splines", "corpcor", "fda","R.methodsS3", "gnm")
 importFrom("stats", "as.formula", "dgamma", "integrate", "nlm",
              "optim", "pchisq", "pgamma", "rmultinom", "runif", "coef", "poisson", "qnorm", "vcov")
 
 importFrom("stats", "naprint", "printCoefmat")
 importFrom("graphics", "lines", "par", "plot")
+importFrom("stats", "model.frame", "model.matrix")
 S3method(print, summary.sccs)
 S3method(print, summary.smoothagesccs)
 #S3method(summary, smoothagesccs)
