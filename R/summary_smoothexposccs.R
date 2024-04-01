@@ -1,4 +1,4 @@
-summary.smoothexposccs <- function(object, conf.int = 0.95) {
+summary_smoothexposccs <- function(object, conf.int = 0.95) {
   
   fit <- object
   beta <- fit$coef
@@ -28,8 +28,11 @@ summary.smoothexposccs <- function(object, conf.int = 0.95) {
   #if (is.R()) class(rval) <- "summary.coxph"
   #else        oldClass(rval) <- "summary.coxph"
   
-  if (is.R()) class(rval) <- "summarysm.smoothexposccs"
-  else        oldClass(rval) <- "summarysm.smoothexposccs"
+  # 25-03-2024
+  # if (is.R()) class(rval) <- "summarysm.smoothexposccs"
+  # else        oldClass(rval) <- "summarysm.smoothexposccs"
+  
+   class(rval) <- "summary_smoothexposccs"
   
   rval
   

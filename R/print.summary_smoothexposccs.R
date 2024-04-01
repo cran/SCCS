@@ -1,4 +1,4 @@
-print.summary.smoothexposccs <-
+print.summary_smoothexposccs <-
   function(x, digits = max(getOption('digits')-3, 3),  
            signif.stars = getOption("show.signif.stars"), ...) {
     if (!is.null(x$call)) {

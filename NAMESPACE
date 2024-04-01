@@ -7,15 +7,16 @@ importFrom("stats", "as.formula", "dgamma", "integrate", "nlm",
 importFrom("stats", "naprint", "printCoefmat")
 importFrom("graphics", "lines", "par", "plot")
 importFrom("stats", "model.frame", "model.matrix")
-S3method(print, summary.sccs)
-S3method(print, summary.smoothagesccs)
-#S3method(summary, smoothagesccs)
+
+S3method(print, summary_sccs)
+S3method(print, summary_smoothagesccs)
+
 S3method(plot, smoothagesccs)
 S3method(plot, nonparasccs)
 S3method(plot, smoothexposccs)
-S3method(print, summary.smoothexposccs)
-#S3method(summary, smoothexposccs)
+S3method(print, summary_smoothexposccs)
+
+
 S3method(print, nonparasccs)
 S3method(print, smoothagesccs)
-#S3method(print1, smoothagesccs)
 S3method(print, smoothexposccs)

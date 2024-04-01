@@ -1,4 +1,4 @@
-print.summary.smoothagesccs <-
+print.summary_sccs <-
   function(x, digits = max(getOption('digits')-3, 3),  
            signif.stars = getOption("show.signif.stars"), ...) {
     if (!is.null(x$call)) {
@@ -14,7 +14,7 @@ print.summary.smoothagesccs <-
     on.exit(options(savedig))
     
     omit <- x$na.action
-    #cat("  n=", x$n)
+    cat("  n=", x$n)
     if (!is.null(x$nevent)) cat(", number of events=", x$nevent, "\n")
     else cat("\n")
     if (length(omit))
@@ -41,8 +41,6 @@ print.summary.smoothagesccs <-
       cat("Concordance=", format(round(x$concordance[1],3)),
           " (se =", format(round(x$concordance[2], 3)),")\n")
     }
-    
-    cat("spline based age relative incidence function:", "\n", "Smoothing parameter =", x$smoothingpara, "\n", "Cross validation score =", x$cv, "\n")
     
     invisible()
   }

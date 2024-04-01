@@ -19,8 +19,8 @@ Note: Ages and times describing the start and end of observation, exposure times
 \tabular{ll}{
 Package: \tab SCCS\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2018-05-03\cr
+Version: \tab 1.7\cr
+Date: \tab 2024-04-01\cr
 License: \tab "GPL-2"\cr
 }
 %%~~ An overview of how to use the package, including the most ~~

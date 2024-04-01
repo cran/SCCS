@@ -1,4 +1,4 @@
-summary.nonparasccs <- function(object, conf.int = 0.95) {
+summary_nonparasccs <- function(object, conf.int = 0.95) {
   
   fit <- object
   beta <- fit$coef
@@ -26,10 +26,10 @@ summary.nonparasccs <- function(object, conf.int = 0.95) {
   rval$smp <- format(fit$smoothingpara,  scientific = T,digits=2)
   rval$crossvalidation <- fit$cv
   
-  
-  if (is.R()) class(rval) <- "summary.nonparasccs"
-  else        oldClass(rval) <- "summary.nonparasccs"
-  
+  # 25-03-2024
+  # if (is.R()) class(rval) <- "summary.nonparasccs"
+  # else        oldClass(rval) <- "summary.nonparasccs"
+   class(rval) <- "summary_nonparasccs"
   rval
   
 }

@@ -1,4 +1,4 @@
-summary.smoothagesccs <- function(object, conf.int = 0.95) {
+summary_smoothagesccs <- function(object, conf.int = 0.95) {
   
   fit <- object
   beta <- fit$coef
@@ -29,8 +29,11 @@ summary.smoothagesccs <- function(object, conf.int = 0.95) {
   #if (is.R()) class(rval) <- "summary.coxph"
   #else        oldClass(rval) <- "summary.coxph"
   
-  if (is.R()) class(rval) <- "summary.smoothagesccs"
-  else        oldClass(rval) <- "summary.smoothagesccs"
+  # 25-03-2024
+  #if (is.R()) class(rval) <- "summary.smoothagesccs"
+  #else        oldClass(rval) <- "summary.smoothagesccs"
+  
+   class(rval) <- "summary_smoothagesccs"
   
   rval
   

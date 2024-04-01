@@ -1,8 +1,8 @@
 Package: SCCS
 Type: Package
 Title: The Self-Controlled Case Series Method
-Version: 1.6
-Date: 2022-07-04
+Version: 1.7
+Date: 2024-04-01
 Author: Yonas Ghebremichael Weldeselassie, Heather Whitaker, Paddy Farrington
 Maintainer: "Yonas Ghebremichael Weldeselassie" <yonas.weldeselassie@open.ac.uk>
 Description: Various self-controlled case series models used to investigate 
@@ -18,7 +18,7 @@ License: GPL (>= 2)
 Depends: R (>= 2.14.0)
 Imports: survival, splines, corpcor, fda, R.methodsS3, gnm
 LazyData: yes
-Packaged: 2022-07-04 22:50:06 UTC; u1673493
+Packaged: 2024-04-01 08:43:38 UTC; yw399
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2022-07-05 14:20:09 UTC
+Date/Publication: 2024-04-01 12:10:11 UTC

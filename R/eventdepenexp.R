@@ -356,7 +356,7 @@ eventdepenexp <- function (indiv, astart, aend, aevent, adrug, aedrug, expogrp =
   ses <- sqrt(diag(sandwich))
   # result <- list("VarCov"=sandwich, "coefficients"=summary.sccs1(mod = mod, sandwich=sandwich, ses = ses, ncases = length(unique(data1$indiv)), 
   #                        nevents = nrow(data1)))
-  result <- summary.sccs(mod = mod, sandwich=sandwich, ses = ses, ncases = length(unique(data1$indiv)), 
+  result <- summary_sccs(mod = mod, sandwich=sandwich, ses = ses, ncases = length(unique(data1$indiv)), 
                          nevents = nrow(data1))
   return(result)
 }

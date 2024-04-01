@@ -2,7 +2,7 @@ print.smoothagesccs <-
   function(x, digits = max(getOption('digits')-3, 3),  
            signif.stars = getOption("show.signif.stars"), ...) {
     
-    x <- summary(x)
+    x <- summary_smoothagesccs(x)
     if (!is.null(x$call)) {
       cat("Call:\n")
       dput(x$call)
