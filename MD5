@@ -1,4 +1,4 @@
-0fbe9f1a31f8aa67255931d02e7171fa *DESCRIPTION
+f0e01ba2decb9fc14c181849258c7b51 *DESCRIPTION
 b20d25b138490f2d9a3fa7f5c9f5a5e5 *NAMESPACE
 27a11e1bddd90760b186d7fff5f77cb4 *R/Yproduct.R
 daa321ada5517e05cd0b24d03910b01e *R/adrug_matrix.R
@@ -27,11 +27,11 @@ cae6f0e016d3c961d3928961914e48f9 *R/print.summary_smoothagesccs.R
 5366570bd41e50d6920029be820d8abd *R/print.summary_smoothexposccs.R
 02c38e19732515c493a7f692d3039669 *R/quantsccs.R
 c36d3dff7335a13bed879d28771e1d0d *R/samplesize.R
-e46e23b21a72c6bd915519361e0bae11 *R/semisccs.R
+3b0e79b9558e7aec8d86a674d6c152d1 *R/semisccs.R
 4d332a2ebda3679757b38a9ed7859d44 *R/simulatesccsdata.R
 940196b0f9949f2da2cfac08ec0961f6 *R/smoothagesccs.R
 1e8679cd155077e1b6fde9d944696c57 *R/smoothexposccs.R
-736a0951cb3efb0972f81cb1bc60f542 *R/standardsccs.R
+fcae11e160e557f69cc452c1388d0f26 *R/standardsccs.R
 a94616df615cd285f13e66edeaa54d36 *R/summary_nonparasccs.R
 be67d1565147d5705a3c8fe505ab4309 *R/summary_sccs.R
 2b08b1bc94a5555c73639e15e74c0f9b *R/summary_smoothagesccs.R
